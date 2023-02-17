@@ -34,9 +34,9 @@ const Dropdown: FC<DropdownProps> = ({
     <div className="relative z-40" ref={dropdown_component_ref}>
       <div className="group">
         <Icon
-          icon={badge ? active : inactive}
+          icon={display_state ? active : inactive}
           icon_wrapper_styles={`p-2 z-30  rounded-full relative ${
-            display_state && "bg-c_dark text-white"
+            display_state && "bg-primary text-white"
           }`}
           purpose={() => setDisplayState((prev) => !prev)}
         />

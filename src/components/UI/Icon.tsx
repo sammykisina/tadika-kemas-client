@@ -2,13 +2,13 @@ import type { FC, ReactNode } from "react";
 
 interface IconProps {
   icon: ReactNode;
-  icon_wrapper_styles?: string;
+  iconWrapperStyles?: string;
   purpose?: () => void;
 }
 
-const Icon: FC<IconProps> = ({ icon, icon_wrapper_styles, purpose }) => {
+const Icon: FC<IconProps> = ({ icon, iconWrapperStyles, purpose }) => {
   return (
-    <div className={`${icon_wrapper_styles} cursor-pointer`} onClick={purpose}>
+    <div className={`${iconWrapperStyles} cursor-pointer`} onClick={purpose}>
       {icon}
     </div>
   );

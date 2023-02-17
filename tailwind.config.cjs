@@ -3,7 +3,9 @@ module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      fontFamily: {},
+      fontFamily: {
+        Work_Sans: ["Work_Sans", "sans-serif"],
+      },
       animation: {
         enter: "fadeInRight 300ms ease-out",
         leave: "fadeOutLeft 300ms ease-in forwards",
@@ -28,7 +30,10 @@ module.exports = {
           },
         },
       },
-      colors: {},
+      colors: {
+        primary: "#170140",
+        orange: "#ff7d55",
+      },
     },
     screens: {
       xs: "500px",

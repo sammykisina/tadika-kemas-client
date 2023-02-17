@@ -2,13 +2,12 @@ import { cva, type VariantProps } from "class-variance-authority";
 import type { ReactNode, FC } from "react";
 
 const button_styles = cva(
-  "flex items-center justify-center px-4 py-2 rounded-full  focus:outline-none whitespace-nowrap",
+  "flex items-center justify-center px-4 py-2 rounded-bl-[1rem]  rounded-tr-[1rem]  focus:outline-none whitespace-nowrap",
   {
     variants: {
       intent: {
-        primary: "bg-c_dark text-white",
-        primary_yellow: "bg-c_yellow text-c_dark hover:rounded-[1rem]",
-        secondary: "bg-c_gray",
+        primary: "bg-orange text-white  hover:text-primary",
+        secondary: "bg-primary text-white",
         danger: "bg-red-500 text-white",
         link: "text-dark font-semibold",
       },

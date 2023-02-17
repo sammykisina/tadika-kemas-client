@@ -23,7 +23,7 @@
       "@/components": ["src/components"],
       "@/constants": ["src/constants"],
       "@/assets": ["src/assets"],
-      "@/routes": ["src/routes"],
+      "@/routers": ["src/routers"],
       "@/hooks": ["src/hooks"],
       "@/atoms": ["src/atoms"],
       "@/schemas": ["src/schemas"],

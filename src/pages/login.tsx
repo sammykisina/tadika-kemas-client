@@ -38,12 +38,12 @@ const Login = () => {
   if (user) router.push("/");
 
   return (
-    <section className="mx-auto flex h-full w-full max-w-[1100px] flex-col items-center justify-center  sm:px-[24px]">
+    <section className="mx-auto flex h-screen w-full max-w-[1100px] flex-col items-center justify-center  sm:px-[24px]">
       {/* pos name */}
       <div className="mb-5 flex flex-col items-center">
-        <Logo logo_styles="text-[3rem]" dot_styles="w-2 h-2 bg-c_dark" />
+        <Logo logo_styles="text-[3rem]" dot_styles="w-2 h-2 bg-orange" />
 
-        <div className="text-c_yellow text-lg">Checker. Its All You.</div>
+        <div className="text-c_yellow text-lg">All in one.</div>
       </div>
 
       {/* the Into section */}
@@ -64,7 +64,7 @@ const Login = () => {
                 <label className="input_label">Email</label>
 
                 {errors["email"] && (
-                  <Error error_message={errors["email"].message} />
+                  <Error errorMessage={errors["email"].message} />
                 )}
               </div>
 
@@ -78,7 +78,7 @@ const Login = () => {
                 <label className="input_label">Password</label>
 
                 {errors["password"] && (
-                  <Error error_message={errors["password"].message} />
+                  <Error errorMessage={errors["password"].message} />
                 )}
               </div>
             </section>
@@ -97,18 +97,8 @@ const Login = () => {
         <div className="mt-2 flex flex-col items-center">
           <NavLink
             route={{ to: "/forgot-password", name: "Forgot Password?" }}
-            type="text_only"
             full_width={false}
           />
-
-          <div className="flex ">
-            <span>Don&lsquo;t have an account yet?</span>
-            <NavLink
-              route={{ to: "/signup", name: "Sign Up" }}
-              type="text_only"
-              full_width={false}
-            />
-          </div>
         </div>
       </div>
 

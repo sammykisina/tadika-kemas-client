@@ -4,6 +4,9 @@ import { useRecoilValue } from "recoil";
 import { Sidebar, TopHeader } from "@/components";
 import { Toaster } from "react-hot-toast";
 import { useAuth } from "@/hooks";
+import Login from "src/pages/login";
+import "react-date-range/dist/styles.css";
+import "react-date-range/dist/theme/default.css";
 
 const Layout = ({ children }: { children: ReactNode }) => {
   /**
@@ -11,7 +14,9 @@ const Layout = ({ children }: { children: ReactNode }) => {
    */
   const { showSidebarState } = appAtoms;
   const showSidebar = useRecoilValue(showSidebarState);
-  const { user } = useAuth();
+  const { user, token } = useAuth();
+
+  if (!token) return <Login />;
 
   return (
     <section className="relative mx-auto flex w-full max-w-[1200px]  sm:px-[20px]">

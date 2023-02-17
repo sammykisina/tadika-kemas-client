@@ -1,0 +1,56 @@
+import React, { useEffect, useMemo, useState } from "react";
+import { Select } from "@/components";
+
+const Filter = ({
+  label,
+  column: { id, preFilteredRows, setFilter },
+}: {
+  label: string;
+  column: {
+    setFilter: any;
+    preFilteredRows: any;
+    id: any;
+  };
+}) => {
+  /**
+   * Component States
+   */
+  const [selected, setSelected] = useState<string>("All");
+
+  /**
+   * Creating The Filter Options Using The perFilteredRows
+   */
+  const options = useMemo(() => {
+    const options = new Set();
+    options.add("All");
+
+    preFilteredRows?.forEach((row: any) => {
+      row.values[id] && options.add(row.values[id].toString());
+    });
+
+    return [...options.values()] as string[];
+  }, [id, preFilteredRows]);
+
+  /**
+   * Set The Current Filter Value
+   */
+  useEffect(() => {
+    setFilter(selected === "All" ? "" : selected);
+  }, [selected]);
+
+  return (
+    <div className="flex items-center gap-2">
+      <span className="text-primary">{label}</span>
+      <Select
+        multiple={false}
+        options={options}
+        select_wrapper_styles="border border-c_gray/30 rounded-[0.9rem] py-1 w-[10rem]"
+        select_panel_styles="max-h-[15rem] bg-white border border-dark shadow-md"
+        selected={selected}
+        setSelected={setSelected}
+      />
+    </div>
+  );
+};
+
+export default Filter;

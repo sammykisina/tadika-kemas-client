@@ -9,7 +9,7 @@ interface WidgetHeader {
 
 const InfoWidgetHeader: FC<WidgetHeader> = ({ close, title }) => {
   return (
-    <section className="border-c_gray  space-y-2 border-b  px-4">
+    <section className="space-y-2 border-b  px-4">
       <WidgetClose close={close} />
 
       <div className="flex items-center gap-2 px-3">

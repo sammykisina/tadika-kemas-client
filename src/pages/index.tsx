@@ -21,8 +21,16 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="border-c_dark flex h-full items-center justify-center rounded-[2rem] border">
-        <div>The start</div>
+      <main className="themeBorder flex h-full items-center justify-center  border border-primary/50">
+        {user?.role === "admin" ? (
+          <p className="text-center text-xl font-bold text-primary">
+            Easy and faster student management. <br /> Let&apos;s make it work.
+          </p>
+        ) : (
+          <p className="text-center text-xl font-bold text-primary">
+            Putting Your Child&apos;s Future <br /> in Great Motion
+          </p>
+        )}
       </main>
     </>
   );

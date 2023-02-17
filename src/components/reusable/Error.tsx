@@ -1,11 +1,11 @@
 import type { FC } from "react";
 
 interface ErrorProps {
-  error_message?: string;
+  errorMessage?: string;
 }
 
-const Error: FC<ErrorProps> = ({ error_message }) => {
-  return <span className="error">{error_message}</span>;
+const Error: FC<ErrorProps> = ({ errorMessage }) => {
+  return <span className="error">{errorMessage}</span>;
 };
 
 export default Error;

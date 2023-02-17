@@ -8,7 +8,7 @@ import {
   useTable,
 } from "react-table";
 import { GlobalFilter } from "@/components";
-import { sort_icons } from "@/assets";
+import { sortIcons } from "@/assets";
 
 const Table = ({
   columns,
@@ -42,7 +42,7 @@ const Table = ({
     useExpanded,
     useRowSelect
   );
-  const { SortIcon, SortDownIcon, SortUpIcon } = sort_icons;
+  const { SortIcon, SortDownIcon, SortUpIcon } = sortIcons;
 
   return (
     <section className="pb-2 ">
@@ -59,7 +59,7 @@ const Table = ({
 
           {/* the filter by role section */}
           <div
-            className={`flex w-fit flex-col items-center gap-1 duration-300 lg:flex-row`}
+            className={`flex w-fit  items-center gap-1 duration-300 sm:flex-col md:flex-row lg:flex-col xl:flex-row`}
           >
             {headerGroups.map((headerGroup) =>
               headerGroup.headers.map((column) =>
@@ -96,7 +96,7 @@ const Table = ({
                     <th
                       key={column_index}
                       scope="col"
-                      className="group px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-c_dark/50"
+                      className="text-c_dark/50 group px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider"
                       {...column.getHeaderProps(column.getSortByToggleProps())}
                     >
                       <div className="flex items-center justify-start">
@@ -139,9 +139,9 @@ const Table = ({
                             role="cell"
                           >
                             {cell.column.Cell.name === "defaultRenderer" ? (
-                              <p className="text-sm text-gray-500 ">
+                              <div className="text-sm text-gray-500 ">
                                 {cell.render("Cell")}
-                              </p>
+                              </div>
                             ) : (
                               cell.render("Cell")
                             )}
