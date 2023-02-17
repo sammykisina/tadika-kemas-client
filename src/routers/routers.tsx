@@ -1,9 +1,13 @@
 import {
   HiAcademicCap,
+  HiBell,
   HiHome,
   HiOutlineAcademicCap,
+  HiOutlineBell,
   HiOutlineHome,
+  HiOutlineQueueList,
   HiOutlineUserCircle,
+  HiQueueList,
   HiUserCircle,
 } from "react-icons/hi2";
 import { type Route } from "src/types/typings.t";
@@ -24,14 +28,29 @@ const teacherRoutes: Route[] = [
     activeIcon: <HiAcademicCap className="icon" />,
     to: "/tech/school",
   },
+];
+
+const studentRoutes: Route[] = [
+  {
+    name: "Performance",
+    inactiveIcon: <HiOutlineQueueList className="icon" />,
+    activeIcon: <HiQueueList className="icon" />,
+    to: "/stud/performance",
+  },
+  {
+    name: "Notifications",
+    inactiveIcon: <HiOutlineBell className="icon" />,
+    activeIcon: <HiBell className="icon" />,
+    to: "/stud/notifications",
+  },
   {
     name: "Profile",
     inactiveIcon: <HiOutlineUserCircle className="icon" />,
     activeIcon: <HiUserCircle className="icon" />,
-    to: "/tech/profile",
+    to: "/stud/profile",
   },
 ];
 
-const routers = { commonRoutes, teacherRoutes };
+const routers = { commonRoutes, teacherRoutes, studentRoutes };
 
 export default routers;

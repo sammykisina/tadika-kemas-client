@@ -25,7 +25,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
 
       {/* the sidebar */}
       <div
-        className={`absolute  duration-300 sm:left-0  ${
+        className={`absolute bg-[#f6f2fd] duration-300 sm:left-0   ${
           showSidebar ? "left-0" : "-left-[100%]"
         } ${!user && "hidden"}`}
       >

@@ -63,3 +63,4 @@ export { default as SpinnerLoader } from "./reusable/SpinnerLoader";
 export { default as NavLink } from "./reusable/NavLink";
 export { default as DeleteStudent } from "./reusable/delete/DeleteStudent";
 export { default as DeleteEvent } from "./reusable/delete/DeleteEvent";
+export { default as Notification } from "./reusable/Notification";

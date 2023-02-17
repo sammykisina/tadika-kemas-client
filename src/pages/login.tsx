@@ -97,7 +97,7 @@ const Login = () => {
         <div className="mt-2 flex flex-col items-center">
           <NavLink
             route={{ to: "/forgot-password", name: "Forgot Password?" }}
-            full_width={false}
+            fullWidth={false}
           />
         </div>
       </div>

@@ -11,7 +11,8 @@ import {
   Title,
 } from "@/components";
 import { HiBell, HiOutlineBell, HiOutlineUser, HiUser } from "react-icons/hi2";
-import { useAuth } from "@/hooks";
+import { useAuth, useProfile } from "@/hooks";
+import { format, isEqual } from "date-fns";
 
 const TopHeader = () => {
   /**
@@ -27,6 +28,21 @@ const TopHeader = () => {
 
   const { user } = useAuth();
 
+  const { profile, isFetchingProfile } = useProfile();
+
+  const todaysNotifications = profile?.relationships?.notifications?.filter(
+    (notification: any) =>
+      isEqual(
+        new Date(format(new Date(), "EE, MMM d, yyy")),
+        new Date(
+          format(
+            new Date(notification?.attributes?.createdAt),
+            "EE, MMM d, yyy"
+          )
+        )
+      )
+  );
+
   /**
    * component function
    */
@@ -41,7 +57,16 @@ const TopHeader = () => {
         title = "Title.";
         break;
       case "/tech/school":
-        title = "Manage Students";
+        title = "Manage Students.";
+        break;
+      case "/stud/performance":
+        title = "Your Performance.";
+        break;
+      case "/stud/profile":
+        title = "Your Profile.";
+        break;
+      case "/stud/notifications":
+        title = "Notifications.";
         break;
       default:
         title = "Title";
@@ -86,9 +111,17 @@ const TopHeader = () => {
               <Dropdown
                 inactive={<HiOutlineBell className="icon" />}
                 active={<HiBell className="icon" />}
-                dropdown_component={<StudentsNotifications />}
+                dropdown_component={
+                  <StudentsNotifications
+                    todaysNotifications={todaysNotifications}
+                    isFetchingProfile={isFetchingProfile}
+                  />
+                }
                 display_state={showNotificationDropdown}
                 setDisplayState={setShowNotificationDropdown}
+                badge={
+                  todaysNotifications?.length > 0 && todaysNotifications?.length
+                }
               />
             </div>
           </div>

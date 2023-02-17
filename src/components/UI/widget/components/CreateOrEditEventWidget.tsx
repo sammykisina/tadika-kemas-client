@@ -1,7 +1,7 @@
 import { Button, Error, SpinnerLoader, WidgetHeader } from "@/components";
 import { eventManagementSchemas } from "@/schemas";
 import React, { useEffect, useState } from "react";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import eventAtoms from "src/atoms/Event";
 import type { z } from "zod";
 import { type SubmitHandler, useForm } from "react-hook-form";
@@ -22,8 +22,9 @@ const CreateOrEditEvent = () => {
   const [globalEvent, setGlobalEvent] = useRecoilState(globalEventState);
   const [isEditingEvent, setIsEditingEvent] =
     useRecoilState(isEditingEventState);
-  const [showCreateOrEditEventWidget, setShowCreateOrEditEventWidget] =
-    useRecoilState(globalEventState);
+  const setShowCreateOrEditEventWidget = useSetRecoilState(
+    showCreateOrEditEventWidgetState
+  );
 
   const { eventSchema } = eventManagementSchemas;
   type EventSchema = z.infer<typeof eventSchema>;

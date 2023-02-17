@@ -8,7 +8,7 @@ const Sidebar = () => {
    * component states
    */
   const { logout, user } = useAuth();
-  const { commonRoutes, teacherRoutes } = routers;
+  const { commonRoutes, teacherRoutes, studentRoutes } = routers;
   const pathname = usePathname();
 
   /**
@@ -36,6 +36,20 @@ const Sidebar = () => {
                   type="medium"
                   fullWidth={true}
                   active={pathname === adminRoute.to && true}
+                />
+              ))}
+
+          {/* student/parent routes */}
+          {user?.role === "student" &&
+            commonRoutes
+              .concat(studentRoutes)
+              .map((studentRoute, routeIndex) => (
+                <NavLink
+                  key={routeIndex}
+                  route={studentRoute}
+                  type="medium"
+                  fullWidth={true}
+                  active={pathname === studentRoute.to && true}
                 />
               ))}
         </ul>

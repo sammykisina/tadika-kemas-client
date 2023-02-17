@@ -43,6 +43,14 @@ const signup_schema = object({
   path: ["password_confirm"],
 });
 
-const auth_schemas = { login_schema, signup_schema };
+const passwordUpdateSchema = object({
+  password: string({ required_error: "Password is required." }).trim(),
+  confirm: string({ required_error: "Enter password to confirm." }).trim(),
+}).refine((data) => data.confirm === data.password, {
+  message: "Passwords don't match",
+  path: ["confirm"],
+});
+
+const auth_schemas = { login_schema, signup_schema, passwordUpdateSchema };
 
 export default auth_schemas;

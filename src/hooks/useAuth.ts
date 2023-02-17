@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { AuthAPI } from "@/api";
 import type { LoginData } from "src/types/typings.t";
 import { useRouter } from "next/navigation";
@@ -23,6 +23,7 @@ const useAuth = () => {
   /**
    * hook functions
    */
+
   const { mutateAsync: loginMutateAsync, isLoading: isLogging } = useMutation({
     mutationFn: (login_data: LoginData) => {
       return AuthAPI.login(login_data);
@@ -34,6 +35,19 @@ const useAuth = () => {
 
       await redirect();
       router.refresh();
+      Notifications.successNotification(data.message);
+    },
+  });
+
+  const {
+    mutateAsync: updatePasswordMutateAsync,
+    isLoading: isUpdatingPassword,
+  } = useMutation({
+    mutationFn: (data: { email: string; password: string }) => {
+      return AuthAPI.updatePassword(data);
+    },
+
+    onSuccess: async (data) => {
       Notifications.successNotification(data.message);
     },
   });
@@ -68,6 +82,8 @@ const useAuth = () => {
     loginMutateAsync,
     isLogging,
     logout,
+    updatePasswordMutateAsync,
+    isUpdatingPassword,
   };
 };
 

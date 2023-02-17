@@ -35,7 +35,7 @@ const Dropdown: FC<DropdownProps> = ({
       <div className="group">
         <Icon
           icon={display_state ? active : inactive}
-          icon_wrapper_styles={`p-2 z-30  rounded-full relative ${
+          iconWrapperStyles={`p-2 z-30  rounded-full relative ${
             display_state && "bg-primary text-white"
           }`}
           purpose={() => setDisplayState((prev) => !prev)}
