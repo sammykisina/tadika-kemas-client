@@ -45,7 +45,9 @@ const StudentsNotifications = ({
               </div>
             </div>
           ) : (
-            ""
+            <div className="flex h-[20rem] items-center justify-center">
+              No notifications todays.
+            </div>
           )}
         </div>
       )}

@@ -11,7 +11,7 @@ const Notification = ({ notification }: { notification: any }) => {
           icon={<HiCalendarDays className="icon" />}
         />
 
-        <span>Event Alert</span>
+        <span>Alert</span>
       </div>
 
       <div className="px-4">
